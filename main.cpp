@@ -53,11 +53,13 @@ public:
             }
             cout<<endl;
         }
+        cout<<endl;
     }
 
-    void rank()
+    int rank()
     {
 
+        int rowCount = 0;
 
         for(int i = 0;i<row;i++)
         {
@@ -72,7 +74,7 @@ public:
                 {
                     r = i;
                     lead++;
-                    if(lead == column) return;
+                    if(lead == column) return rowCount;
                 }
             }
 
@@ -98,16 +100,11 @@ public:
                     matrix[j][k] -= matrix[r][k] * temp;
                 }
             }
+            rowCount++;
             lead++;
         }
 
-        for(int i=0;i<row;i++)
-        {
-            for(int j=0;j<column;j++)
-            {
-                if()
-            }
-        }
+        return rowCount; 
     }
 };
 
@@ -121,9 +118,9 @@ int main()
     linear obj(x,y);
     obj.input();
     obj.rank();
-    obj.display();
+    //obj.display();
 
-    //cout<<"The rank of matrix is :"<<obj.rank()<<endl;
+    cout<<"The rank of matrix is :"<<obj.rank()<<endl;
 
     return 0;
 }
